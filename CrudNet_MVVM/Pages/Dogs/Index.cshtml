@@ -1,0 +1,47 @@
+﻿@page
+@model CrudNet_MVVM.Pages.Dogs.IndexModel
+@{
+    ViewData["Title"] = "Dogs list";
+}
+
+<div class="container p-3">
+    <div class="row pt-4 mb-3">
+        <div class="col-6">
+            <h1 class="text-primary">Dogs list</h1>
+        </div>
+        <div class="col-6 text-end">
+            <a class="btn btn-primary" asp-page="Create">
+                <i class="bi bi-plus-circle me-2"></i>Create dog
+            </a>
+        </div>
+    </div>
+    
+    <table class="table table-striped table-hover table-bordered">
+        <caption>List of dogs</caption>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Owner</th>
+                <th>Sex</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var Dog in Model.Dogs)
+            {
+                <tr>
+                    <td>@Dog.Name</td>
+                    <td>@Dog.Age</td>
+                    <td>@Dog.Owner</td>
+                    <td>@Dog.Sex</td>
+                    <td width="12%">
+                        <a asp-page="Edit" asp-route-id="@Dog.Id" class="btn btn-warning px-3"><i class="bi bi-pencil"></i></a>
+                        <a asp-page="Delete" asp-route-id="@Dog.Id" class="btn btn-danger px-3"><i class="bi bi-trash"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

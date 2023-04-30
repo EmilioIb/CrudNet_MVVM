@@ -1,0 +1,50 @@
+﻿@page
+@model CrudNet_MVVM.Pages.Dogs.CreateModel
+@{
+    ViewData["Title"] = "Create dog";
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-12">
+            <h1>Create dog</h1>
+        </div>
+        <form method="post">
+            <div class="mb-3" asp-validation-summary="All"></div>
+            <div class="mb-3">
+                <label asp-for="Dog.Name" class="form-label">Name</label>
+                <input asp-for="Dog.Name" class="form-control"/>
+                <span asp-validation-for="Dog.Name" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Dog.Age" class="form-label">Age</label>
+                <input asp-for="Dog.Age" class="form-control"/>
+                <span asp-validation-for="Dog.Age" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3">
+                <label asp-for="Dog.Owner" class="form-label">Owner</label>
+                <input asp-for="Dog.Owner" class="form-control" type="text"/>
+                <span asp-validation-for="Dog.Owner" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Dog.Sex" class="form-label">Sex</label>
+                <select asp-for="Dog.Sex" class="form-select">
+                    <option value="" selected>Select an option</option>
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                </select>
+                <span asp-validation-for="Dog.Sex" class="text-danger"></span>
+
+            </div>
+            <button type="submit" class="btn btn-primary px-5">Save</button>
+            <a asp-area="" asp-page="Index" class="btn btn-outline-secondary px-5">Back to list</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
